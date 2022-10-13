@@ -6,13 +6,14 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:58:59 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/10 15:59:11 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/10/13 10:42:15 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <signal.h>
 
 int	main(void)
 {
 	printf("this is a server\n");
-}
+}	
