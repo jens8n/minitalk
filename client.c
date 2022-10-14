@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <signal.h>
 
-int	get_bitvalue(char c)
+void	get_bitvalue(char c)
 {
 	int	i;
 
@@ -28,29 +28,26 @@ int	get_bitvalue(char c)
 		i++;
 		c = c >> 1;
 	}
-	return (i);
 }
 
 void	getstr_bit(char *str)
 {
-	int s;
-	int n; 
+	int s; 
 
 	s = 0;
-	n = 0;
 	while (str[s] != '\0')
 	{
-		n = get_bitvalue(s);
-		i++;
+		get_bitvalue(s);
+		s++;
+		printf("\n");
 	}
 }
-
+man
 int	main(void)
 {
-	char	*str;
 
-	str[] = "assuhduh";
+	char str[] = "assuhduh";
 	getstr_bit(str);
-	printf("hmm: %d\n", (1 << 8));
+	printf("\n bit value: %d\n", (1 << 7));
 }
 	//printf("this is a client\n");

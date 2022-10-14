@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minitalk.h"
 
-int receive_bits(int c, )
-// int	main(void)
-// {
-// 	printf("this is a server\n");
-// }	
+int main(char **argv, int argc)
+{
+    pid_t 
+}
