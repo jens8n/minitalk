@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 15:58:59 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/14 15:47:35 by jebucoy          ###   ########.fr       */
+/*   Created: 2022/10/14 14:54:35 by jebucoy           #+#    #+#             */
+/*   Updated: 2022/10/14 14:58:24 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int receive_bits(int c, )
-// int	main(void)
-// {
-// 	printf("this is a server\n");
-// }	
+# include <stdio.h>
+# include <signal.h>
+
+int	get_bitvalue(char c);
+#endif

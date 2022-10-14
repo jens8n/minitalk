@@ -6,14 +6,15 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:57:28 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/13 19:22:16 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/10/14 15:47:33 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minitalk.h"
 #include <stdio.h>
 #include <signal.h>
 
-void	get_bitvalue(char c)
+int	get_bitvalue(char c)
 {
 	int	i;
 
@@ -27,14 +28,29 @@ void	get_bitvalue(char c)
 		i++;
 		c = c >> 1;
 	}
+	return (i);
+}
+
+void	getstr_bit(char *str)
+{
+	int s;
+	int n; 
+
+	s = 0;
+	n = 0;
+	while (str[s] != '\0')
+	{
+		n = get_bitvalue(s);
+		i++;
+	}
 }
 
 int	main(void)
 {
-	char	c;
+	char	*str;
 
-	c = 'a';
-	get_bitvalue(c);
+	str[] = "assuhduh";
+	getstr_bit(str);
 	printf("hmm: %d\n", (1 << 8));
 }
 	//printf("this is a client\n");
