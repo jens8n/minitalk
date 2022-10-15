@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:57:28 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/14 15:47:33 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/10/15 20:59:22 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,30 @@
 #include <stdio.h>
 #include <signal.h>
 
-void	get_bitvalue(char c)
+int	ft_atoi(const char *str)
+{
+	size_t	i;
+	size_t	s;
+	size_t	n;
+
+	i = 0;
+	s = 1;
+	n = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+			i++;
+	if (str[i] == '-')
+	{
+		s = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] && str[i] >= 48 && str[i] <= 57)
+		n = n * 10 + (str[i++] - 48);
+	return (n * s);
+}
+
+void	get_bitvalue(char c, pid_t pid)
 {
 	int	i;
 
@@ -22,32 +45,48 @@ void	get_bitvalue(char c)
 	while (i < 8)
 	{
 		if ((c & 1) == 1)
-			printf("1");
+		{
+			// printf("1");
+			kill(pid, SIGUSR2);
+		}
 		else
-			printf("0");
+		{
+			// printf("0");
+			kill(pid, SIGUSR1);
+		}
 		i++;
 		c = c >> 1;
 	}
 }
 
-void	getstr_bit(char *str)
+void	getstr_bit(char *str, pid_t pid)
 {
-	int s; 
+	int	s;
 
 	s = 0;
 	while (str[s] != '\0')
 	{
-		get_bitvalue(s);
+		get_bitvalue(s, pid);
 		s++;
-		printf("\n");
 	}
 }
-man
-int	main(void)
-{
 
-	char str[] = "assuhduh";
-	getstr_bit(str);
-	printf("\n bit value: %d\n", (1 << 7));
+int	main(int ac, char **av)
+{
+	pid_t	pid;
+
+	pid = 0;
+	if (ac == 3)
+	{
+		if (av[1])
+		{
+			pid = ft_atoi(av[1]);
+		}
+		if (av[2])
+		{
+			getstr_bit(av[2], pid);
+		}
+	}
+	else 
+		printf("three arguments, dumbass\n");
 }
-	//printf("this is a client\n");
