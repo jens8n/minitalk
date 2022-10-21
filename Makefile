@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:15:10 by jebucoy           #+#    #+#              #
-#    Updated: 2022/10/10 15:57:21 by jebucoy          ###   ########.fr        #
+#    Updated: 2022/10/16 15:59:53 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ C_SRC	=	client.c
 C_OBJS	=	$(C_SRC:*.c=*.o)
 
 RM	=	rm -rf
+
+C_NAME	=	client
 
 $(C_NAME)	:	$(C_OBJS)
 

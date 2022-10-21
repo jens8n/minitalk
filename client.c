@@ -6,13 +6,11 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:57:28 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/15 20:59:22 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/10/21 18:22:15 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
-#include <signal.h>
 
 int	ft_atoi(const char *str)
 {
@@ -56,6 +54,7 @@ void	get_bitvalue(char c, pid_t pid)
 		}
 		i++;
 		c = c >> 1;
+		usleep(100);
 	}
 }
 
@@ -66,7 +65,7 @@ void	getstr_bit(char *str, pid_t pid)
 	s = 0;
 	while (str[s] != '\0')
 	{
-		get_bitvalue(s, pid);
+		get_bitvalue(str[s], pid);
 		s++;
 	}
 }
