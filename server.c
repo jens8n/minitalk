@@ -5,21 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 15:45:27 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/23 15:46:00 by jebucoy          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:58:59 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/21 19:04:34 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/10/23 17:58:56 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +31,10 @@ void	convert_tochar(int sig)
 		i++;
 		if (i == 8)
 		{
-			printf(" : %c", c);
+			ft_putchar_fd(c, 1);
 			c = 0;
 			i = 0;
-			printf("\n");
+			// printf("\n");
 		}
 	}
 }
@@ -57,7 +44,14 @@ int	main(void)
 	pid_t	pid;
 
 	pid = getpid();
-	printf("PID: %d\n", pid);
+	ft_putstr_fd("\n\t MINITALK \t\n", 1);
+	ft_putstr_fd("\n\t To continue, please wait for your PID to be generated\t\n", 1);
+	sleep(2);
+	ft_putstr_fd("\t \t PID: ", 1);
+	ft_putnbr_fd(pid, 1);
+	ft_putstr_fd("\n", 1);
+	// sleep(2);
+	ft_putstr_fd("\n\t You can now run the client with the PID provided and a message to send \t\n", 1);
 	signal(SIGUSR1, convert_tochar);
 	signal(SIGUSR2, convert_tochar);
 	while (1);

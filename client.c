@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:57:28 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/23 15:42:50 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/10/23 17:39:28 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int	main(int ac, char **av)
 			getstr_bit(av[2], pid);
 		}
 	}
-	else 
-		 printf("three arguments, dumbass\n");
+	else
+		ft_putstr_fd("three arguments, dumbass\n", 1);
 }
