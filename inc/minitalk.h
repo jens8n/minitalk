@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:54:35 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/23 17:26:59 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:39:15 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <signal.h>
 # include <sys/types.h>
 # include <unistd.h>
+
+#define GREEN \033[0;32m
 
 
 void	get_bitvalue(char c, pid_t pid);
