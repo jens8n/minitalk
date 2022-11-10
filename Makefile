@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:15:10 by jebucoy           #+#    #+#              #
-#    Updated: 2022/11/07 22:32:20 by jebucoy          ###   ########.fr        #
+#    Updated: 2022/11/10 20:44:58 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,23 +42,41 @@ UTILS	=	utils/ft_atoi.c \
 
 U_OBJS	=	$(UTILS:.c=.o)
 
-all	:	$(U_OBJS) $(S_NAME) $(C_NAME) 
+SB_NAME	=	server
+
+SB_SRC	=	bonus/server_bonus.c \
+
+SB_OBJS	=	$(SB_SRC:.c=.o)
+
+CB_NAME	=	client
+
+CB_SRC	=	bonus/client_bonus.c \
+
+CB_OBJS	=	$(CB_SRC:.c=.o)
+
+all	:	$(U_OBJS) $(S_NAME) $(C_NAME)
+
+bonus	: $(U_OBJS) $(SB_NAME) $(CB_NAME)
+		$(CC) $(CFLAGS) $(SB_OBJS) $(U_OBJS) -o $(SB_NAME)
+		$(CC) $(CFLAGS) $(CB_OBJS) $(U_OBJS) -o $(CB_NAME)
 
 $(S_NAME)	:	$(S_OBJS) $(U_OBJS)
 				@$(CC) $(CFLAGS) $(S_OBJS) $(U_OBJS) -o $(S_NAME)
 				@echo "$(GREEN) Server has been created"
 
 $(C_NAME)	:	$(C_OBJS) $(U_OBJS)
-				$(CC) $(CFLAGS) $(C_OBJS) $(U_OBJS) -o $(C_NAME)
+				@$(CC) $(CFLAGS) $(C_OBJS) $(U_OBJS) -o $(C_NAME)
 				@echo "$(GREEN) Client has been created"
 
 clean	:	
-		@$(RM) $(S_OBJS) $(C_OBJS) $(U_OBJS)
+		@$(RM) $(S_OBJS) $(C_OBJS) $(U_OBJS) $(SB_OBJS) $(CB_OBJS)
 		@echo "$(RED) Object files have been killed"
 
 fclean	:	clean
-		$(RM) $(C_NAME) $(S_NAME)
+		$(RM) $(C_NAME) $(S_NAME) $(SB_NAME) $(CB_NAME)
 
 re		: fclean all
+
+
 			
 

@@ -6,12 +6,12 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 20:28:57 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/23 17:11:17 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/10 19:29:27 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include "libft.h"
-#include "minitalk.h"
+#include "utils.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

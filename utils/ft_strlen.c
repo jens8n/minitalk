@@ -6,11 +6,11 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:24:30 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/23 17:26:28 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/10 19:29:40 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "utils.h"
 
 size_t	ft_strlen(char *str)
 {

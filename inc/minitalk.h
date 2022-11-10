@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:54:35 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/07 21:39:15 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/10 19:28:29 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,12 @@
 # include <signal.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include "utils.h"
 
-#define GREEN \033[0;32m
 
 
 void	get_bitvalue(char c, pid_t pid);
 void	getstr_bit(char *str, pid_t pid);
-int		ft_atoi(const char *str);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(char *str);
-// void	ft_putstr_fd(char *s, int fd);
-// void	ft_putchar_fd(char c, int fd);
+
 
 #endif

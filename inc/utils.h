@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 20:14:03 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/10 19:29:32 by jebucoy          ###   ########.fr       */
+/*   Created: 2022/11/10 19:25:34 by jebucoy           #+#    #+#             */
+/*   Updated: 2022/11/10 19:31:05 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
-#include "utils.h"
+#ifndef UTILS_H
+#define UTILS_H
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (s == NULL)
-		return ;
-	write(fd, s, ft_strlen(s));
-}
+# include <stdio.h>
+# include <signal.h>
+# include <unistd.h>
+
+int		ft_atoi(const char *str);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+size_t	ft_strlen(char *str);
+
+#endif
