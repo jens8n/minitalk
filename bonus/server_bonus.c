@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:53:27 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/10 19:18:51 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/10 22:57:03 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	main(void)
 	struct sigaction	sa;
 
 	sa.sa_handler = &convert_tochar;
-	msg = "\n\t ⏳To continue, please wait for your PID to be generated\t\n";
-	msg2 = "\n\tRun the client with the PID provided and a message to send \n";
-	ft_putstr_fd("\n\t\t\t\t MINITALK 🗯 \t\n", 1);
+	msg = "\n\t ⏳To continue, please wait for your PID to be generated\n";
+	msg2 = "\n\tRun the client with the PID provided and a message to send\n";
+	ft_putstr_fd("\n\t\t\t\t MINITALK 🗯\n", 1);
 	ft_putstr_fd(msg, 1);
 	pid = getpid();
 	sleep(1);
@@ -52,6 +52,7 @@ int	main(void)
 	ft_putstr_fd("\n", 1);
 	ft_putstr_fd(msg2, 1);
 	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 	{
 		pause();

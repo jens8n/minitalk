@@ -6,12 +6,12 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 19:37:04 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/10/23 17:11:04 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/10 20:48:08 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include "libft.h"
-#include "minitalk.h"
+#include "utils.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
