@@ -17,9 +17,10 @@
 # include <signal.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include "utils.h"
 
-void	get_bitvalue(char c, pid_t pid);
+void	get_bitvalue(char c, pid_t pid, int flag);
 void	getstr_bit(char *str, pid_t pid);
 
 #endif

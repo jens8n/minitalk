@@ -28,14 +28,11 @@ void	convert_tochar(int sig, siginfo_t *info, void *context)
 		if (i == 8)
 		{
 			ft_putchar_fd(c, 1);
-			if (c == '\0')
-			{
-				usleep(200);
-				kill(info->si_pid, SIGUSR1);
-			}
 			c = 0;
 			i = 0;
 		}
+		usleep(100);
+		kill(info->si_pid, SIGUSR1);
 	}
 }
 
