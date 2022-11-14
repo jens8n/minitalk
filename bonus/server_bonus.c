@@ -6,17 +6,18 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:53:27 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/10 22:57:03 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/14 17:03:51 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minitalk_bonus.h"
+#include "minitalk_bonus.h"
 
-void	convert_tochar(int sig)
+void	convert_tochar(int sig, siginfo_t *info, void *context)
 {
 	static char		c = 0;
 	static int		i = 0;
 
+	(void)context;
 	if (sig == SIGUSR1 || sig == SIGUSR2)
 	{
 		if (sig == SIGUSR2)
@@ -27,6 +28,11 @@ void	convert_tochar(int sig)
 		if (i == 8)
 		{
 			ft_putchar_fd(c, 1);
+			if (c == '\0')
+			{
+				usleep(200);
+				kill(info->si_pid, SIGUSR1);
+			}
 			c = 0;
 			i = 0;
 		}
@@ -40,7 +46,8 @@ int	main(void)
 	char				*msg2;
 	struct sigaction	sa;
 
-	sa.sa_handler = &convert_tochar;
+	sa.sa_flags = SA_SIGINFO;
+	sa.sa_sigaction = &convert_tochar;
 	msg = "\n\t ⏳To continue, please wait for your PID to be generated\n";
 	msg2 = "\n\tRun the client with the PID provided and a message to send\n";
 	ft_putstr_fd("\n\t\t\t\t MINITALK 🗯\n", 1);

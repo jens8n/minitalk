@@ -6,12 +6,12 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:25:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/10 19:31:05 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/14 16:07:24 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
-#define UTILS_H
+# define UTILS_H
 
 # include <stdio.h>
 # include <signal.h>

@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:57:28 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/07 21:55:55 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/14 16:09:31 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ void	get_bitvalue(char c, pid_t pid)
 	{
 		if ((c & 1) == 1)
 		{
-			// printf("1");
 			kill(pid, SIGUSR2);
 		}
 		else
 		{
-			// printf("0");
 			kill(pid, SIGUSR1);
 		}
 		i++;
@@ -64,5 +62,6 @@ int	main(int ac, char **av)
 		}
 	}
 	else
-		ft_putstr_fd("three arguments, dumbass\n", 1);
+		ft_putstr_fd("three arguments, genius :)\n"
+			"(./client | PID | Message)", 1);
 }

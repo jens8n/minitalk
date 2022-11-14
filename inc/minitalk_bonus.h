@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:50:29 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/10 22:26:47 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/14 16:03:31 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,5 @@
 
 void	get_bitvalue(char c, pid_t pid);
 void	getstr_bit(char *str, pid_t pid);
-// int		ft_atoi(const char *str);
-// void	ft_putnbr_fd(int n, int fd);
-// void	ft_putchar_fd(char c, int fd);
-// void	ft_putstr_fd(char *s, int fd);
-// size_t	ft_strlen(char *str);
 
 #endif

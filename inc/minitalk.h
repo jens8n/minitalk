@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:54:35 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/10 19:28:29 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/14 16:03:27 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@
 # include <unistd.h>
 # include "utils.h"
 
-
-
 void	get_bitvalue(char c, pid_t pid);
 void	getstr_bit(char *str, pid_t pid);
-
 
 #endif

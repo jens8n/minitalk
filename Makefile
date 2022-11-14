@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:15:10 by jebucoy           #+#    #+#              #
-#    Updated: 2022/11/10 22:44:54 by jebucoy          ###   ########.fr        #
+#    Updated: 2022/11/14 15:50:26 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,13 +42,13 @@ UTILS	=	utils/ft_atoi.c \
 
 U_OBJS	=	$(UTILS:.c=.o)
 
-SB_NAME	=	server
+SB_NAME	=	server_bonus
 
 SB_SRC	=	bonus/server_bonus.c \
 
 SB_OBJS	=	$(SB_SRC:.c=.o)
 
-CB_NAME	=	client
+CB_NAME	=	client_bonus
 
 CB_SRC	=	bonus/client_bonus.c \
 
@@ -56,18 +56,23 @@ CB_OBJS	=	$(CB_SRC:.c=.o)
 
 all	:	$(U_OBJS) $(S_NAME) $(C_NAME)
 
-bonus	: $(U_OBJS) $(SB_OBJS) $(CB_OBJS)
-		$(CC) $(CFLAGS) $(SB_OBJS) $(U_OBJS) -o $(SB_NAME)
-		@echo "$(GREEN)BONUS TIME: SERVER HAS BEEN CREATED"
-		$(CC) $(CFLAGS) $(CB_OBJS) $(U_OBJS) -o $(CB_NAME)
-		@echo "$(GREEN)BONUS TIME: CLIENT HAS BEEN CREATED"
+bonus	: $(SB_NAME) $(CB_NAME) 
+
+$(SB_NAME)	:	$(U_OBJS) $(SB_OBJS)
+			$(CC) $(CFLAGS) $(SB_OBJS) $(U_OBJS) -o $(SB_NAME)
+			@echo "$(GREEN)BONUS TIME: SERVER HAS BEEN CREATED"
+
+$(CB_NAME)	: $(U_OBJS) $(CB_OBJS)
+			$(CC) $(CFLAGS) $(CB_OBJS) $(U_OBJS) -o $(CB_NAME)
+			@echo "$(GREEN)BONUS TIME: CLIENT HAS BEEN CREATED"
+
 
 $(S_NAME)	:	$(S_OBJS) $(U_OBJS)
-				$(CC) $(CFLAGS) $(S_OBJS) $(U_OBJS) -o $(S_NAME)
+				@$(CC) $(CFLAGS) $(S_OBJS) $(U_OBJS) -o $(S_NAME)
 				@echo "$(GREEN)Server has been created"
 
 $(C_NAME)	:	$(C_OBJS) $(U_OBJS)
-				$(CC) $(CFLAGS) $(C_OBJS) $(U_OBJS) -o $(C_NAME)
+				@$(CC) $(CFLAGS) $(C_OBJS) $(U_OBJS) -o $(C_NAME)
 				@echo "$(GREEN)Client has been created"
 
 clean	:	
@@ -76,7 +81,7 @@ clean	:
 
 fclean	:	clean
 		@$(RM) $(C_NAME) $(S_NAME) $(SB_NAME) $(CB_NAME)
-		@echo "$(RED)Eexecutables have been wiped."
+		@echo "$(RED)Executables have been wiped."
 
 re		: fclean all
 
