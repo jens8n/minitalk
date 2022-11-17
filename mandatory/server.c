@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:58:59 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/14 16:08:00 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/15 19:27:02 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,20 @@ void	convert_tochar(int sig, siginfo_t *info, void *context)
 int	main(void)
 {
 	pid_t				pid;
-	char				*msg;
-	char				*msg2;
 	struct sigaction	sa;
 
 	sa.sa_flags = SA_SIGINFO;
 	sa.sa_sigaction = &convert_tochar;
-	msg = "\n\t ⏳To continue, please wait for your PID to be generated\n";
-	msg2 = "\n\tRun the client with the PID provided and a message to send\n";
 	ft_putstr_fd("\n\t\t\t\t MINITALK 🗯\n", 1);
-	ft_putstr_fd(msg, 1);
+	ft_putstr_fd("\n\t ⏳To continue, please wait for your PID"
+		" to be generated⏳\n", 1);
 	pid = getpid();
 	sleep(1);
-	ft_putstr_fd("\n\t\t\t\tPID: ", 1);
+	ft_putstr_fd(GREEN"\n\t\t\t\tPID: ", 1);
 	ft_putnbr_fd(pid, 1);
 	ft_putstr_fd("\n", 1);
-	ft_putstr_fd(msg2, 1);
+	ft_putstr_fd(RESET"\n\tRun the client with the"
+		" PID provided and a message to send\n", 1);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)

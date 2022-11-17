@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:57:28 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/14 16:09:31 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:23:03 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	get_bitvalue(char c, pid_t pid, int flag)
 		i++;
 		c = c >> 1;
 		pause();
-		usleep(100);
+		usleep(50);
 	}
 }
 
@@ -78,6 +78,11 @@ int	main(int ac, char **av)
 		if (av[1])
 		{
 			pid = ft_atoi(av[1]);
+			if (kill(pid, 0) == -1 || pid == 0)
+			{
+				ft_putstr_fd(RED"INVALID PID ❌\n"RESET, 1);
+				exit(0);
+			}
 		}
 		if (av[2])
 		{
@@ -85,6 +90,6 @@ int	main(int ac, char **av)
 		}
 	}
 	else
-		ft_putstr_fd("three arguments, genius :)\n"
-			"(./client | PID | MESSAGE)\n", 1);
+		ft_putstr_fd(RED"three arguments:\n"
+			"(./client | PID | MESSAGE)\n"RESET, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:51:49 by jebucoy           #+#    #+#             */
-/*   Updated: 2022/11/14 17:00:31 by jebucoy          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:21:34 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sig_ack(int sig)
 	(void)sig;
 	if (g_var == 1)
 	{
-		ft_putstr_fd("MESSAGE SENT\n", 1);
+		ft_putstr_fd(GREEN"MESSAGE SENT ✅\n"RESET, 1);
 		exit(0);
 	}
 }
@@ -46,7 +46,7 @@ void	get_bitvalue(char c, pid_t pid, int flag)
 		i++;
 		c = c >> 1;
 		pause();
-		usleep(100);
+		usleep(50);
 	}
 }
 
@@ -79,6 +79,11 @@ int	main(int ac, char **av)
 		if (av[1])
 		{
 			pid = ft_atoi(av[1]);
+			if (kill(pid, 0) == -1 || pid == 0)
+			{
+				ft_putstr_fd(RED"INVALID PID ❌\n"RESET, 1);
+				exit(0);
+			}
 		}
 		if (av[2])
 		{
@@ -86,6 +91,6 @@ int	main(int ac, char **av)
 		}
 	}
 	else
-		ft_putstr_fd("three arguments, genius :)\n"
-			"(./client_bonus | PID | MESSAGE)\n", 1);
+		ft_putstr_fd(RED"three arguments:\n"
+			"(./client_bonus | PID | MESSAGE)\n"RESET, 1);
 }
